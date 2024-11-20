@@ -7,12 +7,26 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 export default function MyApp() {
 	const [showLogin, setShowLogin] = useState(false);
 	const [showDash, setShowDash] = useState(false);
 	const [showFirstPage, setShowFirstPage] = useState(true);
+
+	const[data, setData] = useState(null);
+
+	useEffect(() => {
+			fetch('http://localhost:3000/api/getProducts').then((res) => res.json()).then((data) => {setData(data)})
+		},
+	[])
+
+	if (!data) return <p>Loading</p>
+
+	function putInCart(pname) {
+		console.log("Item placed in cart");
+		fetch("http://localhost:3000/api/putInCart?pname=" + pname);
+	}
 
 	function runShowLogin() {
 		setShowLogin(true);
@@ -64,6 +78,21 @@ export default function MyApp() {
 			{showDash && 
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
 				Let's pretend this is the dashboard!
+				<div>
+					{
+						data.map((item, i) => (
+							<div style={{padding:'20px'}} key={i}>
+								Unique ID: {item._id}
+								<br></br>
+								{item.pname}
+								-
+								{item.price}
+								<br></br>
+								<Button onClick={() => putInCart(item.pname)} variant="outlined">Add to cart</Button>
+							</div>
+						))
+					}
+				</div>
 				</Box>
 			}
 		</Box>

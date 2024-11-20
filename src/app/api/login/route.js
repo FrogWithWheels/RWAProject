@@ -24,7 +24,7 @@ export async function GET(req, res) {
 
   const { MongoClient } = require('mongodb');
 
-  const url = 'mongodb://root:example@localhost:27017/';
+  const url = 'mongodb+srv://admin:PorygonBeepBoop42@cluster0.patyb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
   const client = new MongoClient(url);
 
