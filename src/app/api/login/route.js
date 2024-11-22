@@ -35,7 +35,7 @@ export async function GET(req, res) {
   // confirming entry found
   console.log('Found documents =>', findResult);
 
-  let valid = false
+  let valid = false;
 
   // if result found
   if(findResult.length >0 ) {
@@ -55,5 +55,4 @@ export async function GET(req, res) {
 
   // returning the login entry
   return Response.json({ "data":"" + valid + ""})
-
 }
