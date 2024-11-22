@@ -33,12 +33,6 @@ export default function Home() {
    console.log("Sent pass:" + pass);
 
    runDBCallAsync(`/api/login?email=${email}&pass=${pass}`);
-
-  useLayoutEffect(() => {
-     document.body.style.backgroundColor = "red"
-  });
-
-
  }; // end handle submit
 
 async function runDBCallAsync(url) {
@@ -56,7 +50,7 @@ async function runDBCallAsync(url) {
   }
 
   return (
-    <Container maxWidth="sm">
+    <Container sx={{ backgroundColor: "white" }} maxWidth="sm">
       <Box sx={{ height: '100vh' }}>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
