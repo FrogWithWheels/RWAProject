@@ -14,8 +14,11 @@ import {useState, useEffect} from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
+import useRouter from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+
   const handleSubmit = (event) => {
 
   console.log("Handling submit");
@@ -43,6 +46,7 @@ async function runDBCallAsync(url) {
     console.log(data);
     if(data.data == "true"){
       console.log("login is valid!");
+      router.push("/smallapp");
     } 
     else {
       console.log("not valid  ");
