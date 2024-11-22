@@ -40,8 +40,8 @@ async function runDBCallAsync(url) {
     const res = await fetch(url);
 
     const data = await res.json();
-
-    if(data.data== "valid"){
+    console.log(data);
+    if(data.data == "valid"){
       console.log("login is valid!");
     } 
     else {
