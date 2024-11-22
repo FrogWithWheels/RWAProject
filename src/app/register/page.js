@@ -24,15 +24,15 @@ export default function Home() {
 
   const data = new FormData(event.currentTarget);
 
-   let email = data.get('email');
+   let email = data.get('username');
 
    let pass = data.get('pass');
 
-   console.log("Sent email:" + email);
+   console.log("Sent email:" + username);
 
    console.log("Sent pass:" + pass);
 
-   runDBCallAsync(`/api/login?email=${email}&pass=${pass}`);
+   runDBCallAsync(`/api/login?username=${username}&pass=${pass}`);
  }; // end handle submit
 
 async function runDBCallAsync(url) {
@@ -57,7 +57,7 @@ async function runDBCallAsync(url) {
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
             label="Email Address"
             name="email"
             autoComplete="email"
