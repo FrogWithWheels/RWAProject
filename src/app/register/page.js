@@ -36,7 +36,7 @@ export default function Home() {
  }; // end handle submit
 
 async function runDBCallAsync(url) {
-
+    console.log("Async Running in Register");
     const res = await fetch(url);
 
     const data = await res.json();
