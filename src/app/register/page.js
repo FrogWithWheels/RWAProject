@@ -24,11 +24,11 @@ export default function Home() {
 
   const data = new FormData(event.currentTarget);
 
-   let email = data.get('username');
+   let username = data.get('username');
 
    let pass = data.get('pass');
 
-   console.log("Sent email:" + username);
+   console.log("Sent username:" + username);
 
    console.log("Sent pass:" + pass);
 
