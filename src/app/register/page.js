@@ -14,7 +14,7 @@ import {useState, useEffect} from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
-import useRouter from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const router = useRouter();
