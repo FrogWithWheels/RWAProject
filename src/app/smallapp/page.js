@@ -24,7 +24,7 @@ export default function MyApp() {
 
 	// connecting to products page
 	useEffect(() => {
-			fetch('http://localhost:3000/api/getProducts').then((res) => res.json()).then((data) => {setData(data)})
+			fetch('/api/getProducts').then((res) => res.json()).then((data) => {setData(data)})
 		},
 	[])
 
@@ -34,7 +34,7 @@ export default function MyApp() {
 	// sends chosen product to shopping cart
 	function putInCart(pname) {
 		console.log("Item placed in cart");
-		fetch("http://localhost:3000/api/putInCart?pname=" + pname);
+		fetch("/api/putInCart?pname=" + pname);
 	}
 
 	// function for login page

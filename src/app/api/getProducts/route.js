@@ -8,7 +8,7 @@ export async function GET(req, res) {
 
 	// mongo client connection and url storage
 	const { MongoClient } = require('mongodb');
-	const url = 'mongodb+srv://admin:PorygonBeepBoop42@cluster0.patyb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+	const url = process.env.DB_ADDRESS;
 	const client = new MongoClient(url);
 	const dbName = 'app';
 
