@@ -32,7 +32,12 @@ export default function Home() {
 
    console.log("Sent pass:" + pass);
 
-   runDBCallAsync(`/api/login?email=${email}&pass=${pass}`)
+   runDBCallAsync(`/api/login?email=${email}&pass=${pass}`);
+
+  useLayoutEffect(() => {
+     document.body.style.backgroundColor = "red"
+  });
+
 
  }; // end handle submit
 
