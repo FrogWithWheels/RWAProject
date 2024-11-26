@@ -28,6 +28,12 @@ export default function MyApp() {
 		},
 	[])
 
+	// weather api
+	useEffect(() => {
+			fetch('/api/getWeather').then((res) => res.json()).then((weather) => {setWeatherData(weather)})
+		},
+	[])
+
 	// show a loading page while accessing data
 	if (!data) return <p>Loading</p>
 
@@ -89,7 +95,9 @@ export default function MyApp() {
 			}
 			{showDash && 
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-				Let's pretend this is the dashboard!
+				if (!weather) return <p>No Weather</p>
+
+				Today's Temperature: {JSON.stringify(weather.temp)}
 				<div>
 					{
 						// shows products and add to cart button
