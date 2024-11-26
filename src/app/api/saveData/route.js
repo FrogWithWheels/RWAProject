@@ -11,7 +11,7 @@ export async function GET(req, res) {
   session.email = 'mymail@mail.com';
 
   await session.save();
-  console.log(“data saved”);
+  console.log('data save');
 
   return Response.json({});
 }
