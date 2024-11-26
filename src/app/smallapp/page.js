@@ -21,7 +21,7 @@ export default function MyApp() {
 
 	// database connectivity
 	const[data, setData] = useState(null);
-	const[data, setWeatherData] = useState(null);
+	const[weather, setWeatherData] = useState(null);
 
 	// connecting to products page
 	useEffect(() => {
