@@ -54,7 +54,7 @@ export default function Cart() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Krispy Kreme
 					</Typography>
-					    <Button color="inherit" onClick={() => {router.push('/customer'); window.location.reload();}}>Dashboard</Button>
+					    <Button color="inherit" onClick={() => router.push('/customer')}>Dashboard</Button>
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
@@ -67,7 +67,7 @@ export default function Cart() {
 								<br></br>
 								{item.pname}
 								<br></br>
-								<Button onClick={() => removeFromCart(item.pname)} variant="outlined">Remove from cart</Button>
+								<Button onClick={() => {removeFromCart(item.pname); window.location.reload();}} variant="outlined">Remove from cart</Button>
 							</div>
 						))
 					}
