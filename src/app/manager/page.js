@@ -61,7 +61,7 @@ export default function Cart() {
 								Order ID: {item.orderDetails[i]._id}
 								<br></br>
 								{
-									orderDetails.forEach((_id, index) =>
+									item.orderDetails.forEach((_id, index) =>
 										<div style={{padding:'20px'}} key={index}>
 											Product ID: {item.orderDetails[index]._id}
 											<br></br>
