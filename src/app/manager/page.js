@@ -58,9 +58,9 @@ export default function Cart() {
 						data.map((item, i) => (
 							<Box>
 							<div style={{padding:'20px'}} key={i}>
-								Unique ID: {item.orderDetails._id}
+								Unique ID: {item.orderDetails.Object._id}
 								<br></br>
-								{item.orderDetails.pname}
+								{item.orderDetails.Object.pname}
 								<br></br>
 							</div>
 							</Box>
