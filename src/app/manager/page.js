@@ -60,9 +60,17 @@ export default function Cart() {
 							<div style={{padding:'20px'}} key={i}>
 								Order ID: {item.orderDetails[i]._id}
 								<br></br>
-								Name ID: {item.orderDetails[i].pname}
-								<br></br>
-								User: {item.orderDetails[i].username}
+								{
+									orderDetails.forEach((_id, index) =>
+										<div style={{padding:'20px'}} key={index}>
+											Product ID: {item.orderDetails[index]._id}
+											<br></br>
+											Name: {item.orderDetails[index].pname}
+											<br></br>
+											User: {item.orderDetails[index].username}
+										</div>
+										)
+								}
 								<br></br>
 							</div>
 							</Box>
