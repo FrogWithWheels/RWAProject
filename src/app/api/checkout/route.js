@@ -28,7 +28,8 @@ export async function GET(req, res) {
 	// adding the product to shopping cart and linking to user
 	var myobj = {orderDetails: findResult};
 	const insertResult = await collection1.insertOne(myobj);
-	const removeResult = await collection2.clear();
+	const removeResult = await collection2.drop();
+	db.createCollection("shopping_cart");
 
 	// returning the data
 	return Response.json({"data":"" + "inserted" + ""});
