@@ -10,9 +10,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 
-// =================================================
-// This page shows the shopping cart and it's items.
-// =================================================
+// ======================================================
+// This page shows all of the orders placed by customers.
+// ======================================================
 
 export default function Cart() {
 	const router = useRouter();
@@ -23,7 +23,7 @@ export default function Cart() {
 
 	// connecting to products page
 	useEffect(() => {
-			fetch('/api/getCart').then((res) => res.json()).then((data) => {setData(data)})
+			fetch('/api/getOrders').then((res) => res.json()).then((data) => {setData(data)})
 		},
 	[])
 
@@ -35,18 +35,6 @@ export default function Cart() {
 
 	// show a loading page while accessing data
 	if (!data) return <p>Loading</p>
-
-	// sends chosen product to shopping cart
-	function removeFromCart(pname) {
-		console.log("Item removed from cart");
-		fetch("/api/removeFromCart?pname=" + pname);
-	}
-
-	// sends chosen product to shopping cart
-	function orderCart(pname) {
-		console.log("Checking out items");
-		fetch("/api/checkout");
-	}
 
 	// return statement for returning each page
 	return (
@@ -69,19 +57,13 @@ export default function Cart() {
 						// shows products and add to cart button
 						data.map((item, i) => (
 							<div style={{padding:'20px'}} key={i}>
-								Unique ID: {item._id}
+								Unique ID: {item.orderDetails.i._id}
 								<br></br>
-								{item.pname}
+								{item.orderDetails.i.pname}
 								<br></br>
-								<Button onClick={() => {removeFromCart(item.pname); window.location.reload();}} variant="outlined">Remove from cart</Button>
 							</div>
 						))
 					}
-				</div>
-				</Box>
-				<Box>
-				<div>
-					<Button onClick={() => {orderCart(); router.push('/customer')}} variant="outlined">Checkout</Button>
 				</div>
 				</Box>
 		</Box>
