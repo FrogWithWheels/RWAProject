@@ -66,8 +66,6 @@ export default function Cart() {
 								Unique ID: {item._id}
 								<br></br>
 								{item.pname}
-								-
-								{item.price}
 								<br></br>
 								<Button onClick={() => removeFromCart(item.pname)} variant="outlined">Remove from cart</Button>
 							</div>

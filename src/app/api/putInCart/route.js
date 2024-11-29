@@ -30,7 +30,7 @@ export async function GET(req, res) {
 	const collection = db.collection('shopping_cart');
 
 	// adding the product to shopping cart and linking to user
-	var myobj = {pname: pname, price: price, username: "sample@test.com"};
+	var myobj = {pname: pname, username: "sample@test.com"};
 	const insertResult = await collection.insertOne(myobj);
 
 	// returning the data
