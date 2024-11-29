@@ -37,7 +37,7 @@ export default function Cart() {
 	if (!data) return <p>Loading</p>
 
 	// sends chosen product to shopping cart
-	function putInCart(pname) {
+	function removeFromCart(pname) {
 		console.log("Item removed from cart");
 		fetch("/api/removeFromCart?pname=" + pname);
 	}
@@ -54,7 +54,7 @@ export default function Cart() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Krispy Kreme
 					</Typography>
-					    <Button color="inherit" onClick={router.push("/customer")}>Shopping Cart</Button>
+					    <Button color="inherit" onClick={() => router.push('/customer')}>Shopping Cart</Button>
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
@@ -69,7 +69,7 @@ export default function Cart() {
 								-
 								{item.price}
 								<br></br>
-								<Button onClick={() => putInCart(item.pname)} variant="outlined">Remove from cart</Button>
+								<Button onClick={() => removeFromCart(item.pname)} variant="outlined">Remove from cart</Button>
 							</div>
 						))
 					}
