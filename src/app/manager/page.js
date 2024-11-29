@@ -58,10 +58,10 @@ export default function Cart() {
 						data.map((item, i) => (
 							<Box>
 							<div style={{padding:'20px'}} key={i}>
-								Order ID: {item.orderDetails[i]._id}
+								Order ID: {item.orderDetails._id}
 								<br></br>
 								{
-									item.orderDetails.forEach((item, index) =>
+									item.orderDetails[].forEach((item, index) =>
 										<div style={{padding:'20px'}} key={index}>
 											Product ID: {item.orderDetails[index]._id}
 											<br></br>
