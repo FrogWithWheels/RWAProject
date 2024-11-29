@@ -58,16 +58,7 @@ export default function Cart() {
 						data.map((item, i) => (
 							<Box>
 							<div style={{padding:'20px'}} key={i}>
-							{
-								item.orderDetails.map((pname, j) => 
-									<div key={j}>
-									Order ID: {pname.orderDetails[j]._id}
-									</div>
-								)
-							}
-								Order ID: {item.orderDetails[i]._id}
-								<br></br>
-								Name ID: {item.orderDetails[i].pname}
+								Order ID: {item._id}
 								<br></br>
 								User: {item.orderDetails[i].username}
 								<br></br>
