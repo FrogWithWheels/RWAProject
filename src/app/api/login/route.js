@@ -44,6 +44,11 @@ export async function GET(req, res) {
 
     // print to console
     console.log("Login valid");
+
+    let session = await getCustomSession();
+    session.username = username;
+    session.pass = pass;
+    await session.save();
   }
   else {
     // valid login is false

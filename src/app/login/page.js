@@ -28,13 +28,14 @@ export default function Home() {
   const data = new FormData(event.currentTarget);
 
    let username = data.get('username');
+
    let pass = data.get('pass');
 
    console.log("Sent username:" + username);
 
    console.log("Sent pass:" + pass);
 
-   runDBCallAsync(`/api/register?username=${username}&pass=${pass}`);
+   runDBCallAsync(`/api/login?username=${username}&pass=${pass}`);
  }; // end handle submit
 
 async function runDBCallAsync(url) {
@@ -45,6 +46,7 @@ async function runDBCallAsync(url) {
     console.log(data);
     if(data.data == "true"){
       console.log("login is valid!");
+      router.push("/customer");
     } 
     else {
       console.log("not valid  ");
@@ -65,6 +67,7 @@ async function runDBCallAsync(url) {
             autoComplete="email"
             autoFocus
           />
+
           <TextField
             margin="normal"
             required
