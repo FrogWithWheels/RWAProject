@@ -10,12 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 
-// =========================================
-// This is where my main customer page goes.
-// =========================================
+// =================================================
+// This page shows the shopping cart and it's items.
+// =================================================
 
-export default function MyApp() {
-  	const router = useRouter();
+export default function Cart() {
+	const router = useRouter();
 
 	// database connectivity
 	const[data, setData] = useState(null);
@@ -23,7 +23,7 @@ export default function MyApp() {
 
 	// connecting to products page
 	useEffect(() => {
-			fetch('/api/getProducts').then((res) => res.json()).then((data) => {setData(data)})
+			fetch('/api/getCart').then((res) => res.json()).then((data) => {setData(data)})
 		},
 	[])
 
@@ -38,8 +38,8 @@ export default function MyApp() {
 
 	// sends chosen product to shopping cart
 	function putInCart(pname) {
-		console.log("Item placed in cart");
-		fetch("/api/putInCart?pname=" + pname);
+		console.log("Item removed from cart");
+		fetch("/api/removeFromCart?pname=" + pname);
 	}
 
 	// return statement for returning each page
@@ -54,11 +54,10 @@ export default function MyApp() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Krispy Kreme
 					</Typography>
-					    <Button color="inherit" onClick={router.push("/viewCart")}>Shopping Cart</Button>
+					    <Button color="inherit" onClick={router.push("/customer")}>Shopping Cart</Button>
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-				Today's Temperature: {JSON.stringify(weather.temp)}
 				<div>
 					{
 						// shows products and add to cart button
@@ -70,7 +69,7 @@ export default function MyApp() {
 								-
 								{item.price}
 								<br></br>
-								<Button onClick={() => putInCart(item.pname)} variant="outlined">Add to cart</Button>
+								<Button onClick={() => putInCart(item.pname)} variant="outlined">Remove from cart</Button>
 							</div>
 						))
 					}

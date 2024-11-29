@@ -46,7 +46,7 @@ async function runDBCallAsync(url) {
     console.log(data);
     if(data.data == "true"){
       console.log("login is valid!");
-      router.push("/smallapp");
+      router.push("/customer");
     } 
     else {
       console.log("not valid  ");
