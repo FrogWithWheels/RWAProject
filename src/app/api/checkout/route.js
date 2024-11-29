@@ -6,13 +6,6 @@ export async function GET(req, res) {
 	// printing a message that page was accessed
 	console.log("Cart API accessed");
 
-	// getting the sent product
-	const {searchParams} = new URL(req.url);
-	const pname = searchParams.get('pname');
-
-	// printing the product to console
-	console.log(pname);
-
 	// connecting to the database
 	const {MongoClient} = require('mongodb');
 	const url = process.env.DB_ADDRESS;
@@ -33,7 +26,7 @@ export async function GET(req, res) {
 	const findResult = await collection2.find({}).toArray();
 
 	// adding the product to shopping cart and linking to user
-	var myobj = {findResult};
+	var myobj = {orderDetails: findResult};
 	const insertResult = await collection1.insertOne(myobj);
 
 	// returning the data

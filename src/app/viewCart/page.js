@@ -45,7 +45,7 @@ export default function Cart() {
 	// sends chosen product to shopping cart
 	function orderCart(pname) {
 		console.log("Checking out items");
-		fetch("/api/checkout?pname=" + pname);
+		fetch("/api/checkout");
 	}
 
 	// return statement for returning each page
@@ -81,7 +81,7 @@ export default function Cart() {
 				</Box>
 				<Box>
 				<div>
-					<Button onClick={() => orderCart(item.pname)} variant="outlined">Checkout</Button>
+					<Button onClick={() => orderCart()} variant="outlined">Checkout</Button>
 				</div>
 				</Box>
 		</Box>
