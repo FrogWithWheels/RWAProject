@@ -9,9 +9,9 @@ export async function GET(req, res) {
   console.log("Login API accessed");
 
   // storing variables
-  const { searchParams } = new URL(req.url)
-  const username = searchParams.get('username')
-  const pass = searchParams.get('pass')
+  const { searchParams } = new URL(req.url);
+  const username = searchParams.get('username');
+  const pass = searchParams.get('pass');
 
   // showing the email and password in console
   console.log(username);
