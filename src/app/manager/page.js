@@ -55,12 +55,14 @@ export default function Cart() {
 				<div>
 					{
 						// shows products and add to cart button
-						data.orderDetails.map((item, i) => (
+						data.map((item, i) => (
 							<Box>
 							<div style={{padding:'20px'}} key={i}>
-								Unique ID: {item._id}
+								Order ID: {item.orderDetails[i]._id}
 								<br></br>
-								{item.pname}
+								Name ID: {item.orderDetails[i].pname}
+								<br></br>
+								User: {item.orderDetails[i].username}
 								<br></br>
 							</div>
 							</Box>
