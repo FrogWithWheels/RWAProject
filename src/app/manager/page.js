@@ -60,7 +60,7 @@ export default function Cart() {
 							<div style={{padding:'20px'}} key={i}>
 								Order ID: {item._id}
 								<br></br>
-								User: {item.orderDetails[i].username}
+								User: {item.orderDetails[0].username}
 								<br></br>
 							</div>
 							</Box>

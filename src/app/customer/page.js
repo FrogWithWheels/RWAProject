@@ -55,6 +55,7 @@ export default function MyApp() {
 						Krispy Kreme
 					</Typography>
 					    <Button color="inherit" onClick={() => router.push('/viewCart')}>Shopping Cart</Button>
+					    <Button color="inherit" onClick={() => router.push('/manager')}>Orders</Button>
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
