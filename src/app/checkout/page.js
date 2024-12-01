@@ -10,13 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 
-// =================================================
-// This page shows the shopping cart and it's items.
-// =================================================
+// =========================================
+// This is where my main customer page goes.
+// =========================================
 
-export default function Cart() {
-	// router for sending user back to another page
-	const router = useRouter();
+export default function Checkout() {
+  	const router = useRouter();
 
 	// database connectivity
 	const[data, setData] = useState(null);
@@ -24,7 +23,7 @@ export default function Cart() {
 
 	// connecting to products page
 	useEffect(() => {
-			fetch('/api/getCart').then((res) => res.json()).then((data) => {setData(data)})
+			fetch('/api/getProducts').then((res) => res.json()).then((data) => {setData(data)})
 		},
 	[])
 
@@ -38,15 +37,9 @@ export default function Cart() {
 	if (!data) return <p>Loading</p>
 
 	// sends chosen product to shopping cart
-	function removeFromCart(pname) {
-		console.log("Item removed from cart");
-		fetch("/api/removeFromCart?pname=" + pname);
-	}
-
-	// sends chosen product to shopping cart
-	function orderCart(pname) {
-		console.log("Checking out items");
-		fetch("/api/checkout");
+	function putInCart(pname) {
+		console.log("Item placed in cart");
+		fetch("/api/putInCart?pname=" + pname);
 	}
 
 	// return statement for returning each page
@@ -61,29 +54,14 @@ export default function Cart() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Krispy Kreme
 					</Typography>
-					    <Button color="inherit" onClick={() => router.push('/customer')}>Dashboard</Button>
+					    <Button color="inherit" onClick={() => router.push('/viewCart')}>Shopping Cart</Button>
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+				Today's Temperature: {JSON.stringify(weather.temp)}
+				Thank you for your order. Click below to return to the home page.
 				<div>
-					{
-						// shows products and add to cart button
-						data.map((item, i) => (
-							<div style={{padding:'20px'}} key={i}>
-								Unique ID: {item._id}
-								<br></br>
-								{item.pname}
-								<br></br>
-								<Button onClick={() => {removeFromCart(item.pname); window.location.reload();}} variant="outlined">Remove from cart</Button>
-							</div>
-						))
-					}
-				</div>
-				</Box>
-				<Box>
-				<div>
-					{/* when the user checks out, send them back to the dashboard */}
-					<Button onClick={() => {orderCart(); router.push('/checkout')}} variant="outlined">Checkout</Button>
+					<Button color="inherit" onClick={() => router.push('/customer')}>Dashboard</Button>
 				</div>
 				</Box>
 		</Box>
