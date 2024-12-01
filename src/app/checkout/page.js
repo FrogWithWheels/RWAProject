@@ -58,7 +58,6 @@ export default function Checkout() {
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-				Today's Temperature: {JSON.stringify(weather.temp)}
 				Thank you for your order. Click below to return to the home page.
 				<div>
 					<Button color="inherit" onClick={() => router.push('/customer')}>Dashboard</Button>
