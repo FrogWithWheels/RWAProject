@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "673e06ad5520e65947b3eef6"
+  },
+  "username": "user@sample.ie",
+  "pass": "1234",
+  "acc_type": "customer"
+},
+{
+  "_id": {
+    "$oid": "673e06da5520e65947b3eef7"
+  },
+  "username": "user2@sample.ie",
+  "pass": "1234",
+  "acc_type": "manager"
+}]

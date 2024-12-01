@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "673e08845520e65947b3eef8"
+  },
+  "pname": "Jam Doughnut",
+  "price": "1 Euro"
+},
+{
+  "_id": {
+    "$oid": "673e08a55520e65947b3eef9"
+  },
+  "pname": "Glazed Donut",
+  "price": "1 Euro"
+}]
