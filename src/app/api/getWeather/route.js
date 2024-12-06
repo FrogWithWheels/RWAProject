@@ -11,5 +11,5 @@ export async function GET(req, res) {
 
 	let currentTemp = data.current.temp_c;
 
-	return Response.json({"temp:": currentTemp});
+	return Response.json({"Temperature": currentTemp});
 }

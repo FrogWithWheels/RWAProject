@@ -59,7 +59,7 @@ export default function MyApp() {
 				</Toolbar>
 			</AppBar>
 				<Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-				<p>Today's Temperature: {JSON.stringify(weather.temp)}</p>
+				<div style={{color:"white"}}>Today's Temperature: {JSON.stringify(weather.Temperature)}</div>
 				<div>
 					{
 						// shows products and add to cart button
