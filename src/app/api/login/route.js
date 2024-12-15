@@ -30,7 +30,7 @@ export async function GET(req, res) {
   // connecting to the collection
   const db = client.db(dbName);
   const collection = db.collection('login');
-  const findResult = await collection.find({"username": username, "pass": pass}).toArray();
+  const findResult = await collection.find({"username": username}).toArray();
 
   // confirming entry found
   console.log('Found documents =>', findResult);
