@@ -39,9 +39,6 @@ export async function GET(req, res) {
   const collection = db.collection('login');
   const insertResult = collection.insertOne({"username": username, "pass": hash});
 
-  // confirming entry found
-  console.log('Found documents =>', findResult);
-
   let session = await getCustomSession();
   session.username = username;
   session.pass = pass;
