@@ -37,7 +37,7 @@ export async function GET(req, res) {
   // connecting to the collection
   const db = client.db(dbName);
   const collection = db.collection('login');
-  const insertResult = collection.insertOne({"username": username, "pass": hash);
+  const insertResult = collection.insertOne({"username": username, "pass": hash});
 
   // confirming entry found
   console.log('Found documents =>', findResult);

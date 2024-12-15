@@ -19,7 +19,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-important DialogTitle from '@mui/material/DialogTitle';
+import DialogTitle from '@mui/material/DialogTitle';
 
 export default function Home() {
   var validator = require("email-validator");
