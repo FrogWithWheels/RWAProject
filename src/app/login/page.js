@@ -29,11 +29,13 @@ export default function Home() {
   const validateForm = (event) => {
     let errorMessage = '';
 
-    let email = data.get('username');
+    const data = new FormData(event.currentTarget);
+
+    let username = data.get('username');
 
     var validator = require("email-validator");
 
-    let emailCheck = validator.validate(email);
+    let emailCheck = validator.validate(username);
 
     console.log("email status" + emailCheck);
 
