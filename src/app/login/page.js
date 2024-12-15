@@ -148,23 +148,16 @@ async function runDBCallAsync(url) {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">
-            {"Error"}
-          </DialogTitle>
+          <DialogTitle id="alert-dialog-title">Error</DialogTitle>
 
           <DialogContent>
-            <DialogContextText id="alert-dialog-description">
-              {errorHolder}
-            </DialogContextText>
+            <DialogContextText id="alert-dialog-description">{errorHolder}</DialogContextText>
           </DialogContent>
-
           <DialogActions>
-            <Button onClick={handleClose} autoFocus>
-              Close
-            </Button>
+            <Button onClick={handleClose} autoFocus>Close</Button>
           </DialogActions>
         </Dialog>
-      <React.Fragment>
+      </React.Fragment>
     </Container>
   ); // end return
 }
