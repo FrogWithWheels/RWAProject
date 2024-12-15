@@ -17,6 +17,11 @@ export async function GET(req, res) {
   console.log(username);
   console.log(pass);
 
+  const bcrypt = require('bycrypt');
+  const saltRounds = 10;
+
+  const hash = bcrypt.hashSync(pass, saltRounds);
+
   // database connection variables
   const { MongoClient } = require('mongodb');
   const url = process.env.DB_ADDRESS;
@@ -32,7 +37,7 @@ export async function GET(req, res) {
   // connecting to the collection
   const db = client.db(dbName);
   const collection = db.collection('login');
-  const insertResult = collection.insertOne({"username": username, "pass": pass});
+  const insertResult = collection.insertOne({"username": username, "pass": hash);
 
   // confirming entry found
   console.log('Found documents =>', findResult);

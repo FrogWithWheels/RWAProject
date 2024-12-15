@@ -37,6 +37,12 @@ export async function GET(req, res) {
 
   let valid = false;
 
+  const bcrypt = require('bcrypt');
+  let hashResult = bcrypt.compareSync(pass, findResult[0].pass);
+
+  console.log("Checking " + findResult[0].pass);
+  console.log("Hash Comparison Result " + hashResult);
+
   // if result found
   if(findResult.length >0 ) {
     // valid login is true

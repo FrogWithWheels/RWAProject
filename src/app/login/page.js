@@ -15,28 +15,63 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import { useRouter } from 'next/navigation';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+important DialogTitle from '@mui/material/DialogTitle';
 
 export default function Home() {
+  var validator = require("email-validator");
+
   const router = useRouter();
 
+  const validateForm = (event) => {
+    let errorMessage = '';
+
+    let email = data.get('username');
+
+    var validator = require("email-validator");
+
+    let emailCheck = validator.validate(email);
+
+    console.log("email status" + emailCheck);
+
+    if (emailCheck == false) {
+      errorMessage += 'Incorrect email';
+    }
+
+    return errorMessage;
+  };
+
   const handleSubmit = (event) => {
+    console.log("Handling submit");
 
-  console.log("Handling submit");
+    event.preventDefault();
 
-  event.preventDefault();
+    let errorMessage = validateForm(event);
 
-  const data = new FormData(event.currentTarget);
+    setErrorHolder(errorMessage);
 
-   let username = data.get('username');
+    if (errorMessage.length > 0) {
+      setOpen(true);
+    }
+    else {
+      const data = new FormData(event.currentTarget);
 
-   let pass = data.get('pass');
+      let username = data.get('username');
 
-   console.log("Sent username:" + username);
+      let pass = data.get('pass');
 
-   console.log("Sent pass:" + pass);
+      console.log("Sent username:" + username);
 
-   runDBCallAsync(`/api/login?username=${username}&pass=${pass}`);
- }; // end handle submit
+      console.log("Sent pass:" + pass);
+
+      runDBCallAsync(`/api/login?username=${username}&pass=${pass}`);
+    }
+  }; // end handle submit
+
+
 
 async function runDBCallAsync(url) {
     console.log("Async Running in Register");
@@ -52,6 +87,18 @@ async function runDBCallAsync(url) {
       console.log("not valid  ");
     }
   }
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [errorHolder, setErrorHolder] = React.useState(false);
 
   return (
     <Container sx={{ backgroundColor: "white" }} maxWidth="sm">
@@ -94,6 +141,30 @@ async function runDBCallAsync(url) {
           </Button>
         </Box>
       </Box>
+      <React.Fragment>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Error"}
+          </DialogTitle>
+
+          <DialogContent>
+            <DialogContextText id="alert-dialog-description">
+              {errorHolder}
+            </DialogContextText>
+          </DialogContent>
+
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      <React.Fragment>
     </Container>
   ); // end return
 }
