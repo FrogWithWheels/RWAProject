@@ -45,5 +45,5 @@ export async function GET(req, res) {
   await session.save();
 
   // returning the login entry
-  return Response.json({ "data":"valid" "registration":"valid"})
+  return Response.json({ "data":"valid", "registration":"valid"})
 }
