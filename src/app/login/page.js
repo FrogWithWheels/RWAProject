@@ -151,7 +151,7 @@ async function runDBCallAsync(url) {
           <DialogTitle id="alert-dialog-title">Error</DialogTitle>
 
           <DialogContent>
-            <DialogContextText id="alert-dialog-description">{errorHolder}</DialogContextText>
+            <DialogContentText id="alert-dialog-description">{errorHolder}</DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>Close</Button>
