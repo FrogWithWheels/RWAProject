@@ -1,4 +1,4 @@
-import { getCustomSession } from '../sessionCode.js'
+import getCustomSession from '../sessionCode.js'
 
 export async function GET(req, res) {
 
