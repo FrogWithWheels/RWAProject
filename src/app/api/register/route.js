@@ -17,7 +17,7 @@ export async function GET(req, res) {
   console.log(username);
   console.log(pass);
 
-  const bcrypt = require('bycrypt');
+  const bcrypt = require('bcrypt');
   const saltRounds = 10;
 
   const hash = bcrypt.hashSync(pass, saltRounds);
